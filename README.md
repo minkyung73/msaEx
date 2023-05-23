@@ -20,8 +20,8 @@ cd /bin
 ## Run the backend micro-services
 See the README.md files inside the each microservices directory:
 
-- BoundedContext50
-- BoundedContext50
+- InHello
+- OutHello
 
 
 ## Run API Gateway (Spring Gateway)
@@ -31,11 +31,11 @@ mvn spring-boot:run
 ```
 
 ## Test by API
-- BoundedContext50
+- InHello
 ```
  http :8088/hellos id="id" hello="hello" 
 ```
-- BoundedContext50
+- OutHello
 ```
  http :8088/worlds id="id" 
 ```
