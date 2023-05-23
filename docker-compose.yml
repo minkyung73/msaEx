@@ -23,7 +23,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
 
-  BoundedContext50:
+  InHello:
     depends_on: 
       - kafka
     image: adoptopenjdk/maven-openjdk11:latest
@@ -34,10 +34,10 @@ services:
       - 8081:8081
     working_dir: /usr/src
     volumes:
-      - ./BoundedContext50:/usr/src
+      - ./InHello:/usr/src
       - ./maven-repo:/root/.m2
       
-  BoundedContext50:
+  OutHello:
     depends_on: 
       - kafka
     image: adoptopenjdk/maven-openjdk11:latest
@@ -48,6 +48,6 @@ services:
       - 8082:8082
     working_dir: /usr/src
     volumes:
-      - ./BoundedContext50:/usr/src
+      - ./OutHello:/usr/src
       - ./maven-repo:/root/.m2
       

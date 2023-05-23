@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BoundedContext50
+  name: InHello
   labels:
-    app: BoundedContext50
+    app: InHello
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: BoundedContext50
+      app: InHello
   template:
     metadata:
       labels:
-        app: BoundedContext50
+        app: InHello
     spec:
       containers:
-        - name: BoundedContext50
-          image: username/BoundedContext50:latest
+        - name: InHello
+          image: username/InHello:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -43,22 +43,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BoundedContext50
+  name: OutHello
   labels:
-    app: BoundedContext50
+    app: OutHello
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: BoundedContext50
+      app: OutHello
   template:
     metadata:
       labels:
-        app: BoundedContext50
+        app: OutHello
     spec:
       containers:
-        - name: BoundedContext50
-          image: username/BoundedContext50:latest
+        - name: OutHello
+          image: username/OutHello:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -85,15 +85,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: BoundedContext50
+  name: InHello
   labels:
-    app: BoundedContext50
+    app: InHello
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: BoundedContext50
+    app: InHello
 
 
 ---
@@ -102,13 +102,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: BoundedContext50
+  name: OutHello
   labels:
-    app: BoundedContext50
+    app: OutHello
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: BoundedContext50
+    app: OutHello
 

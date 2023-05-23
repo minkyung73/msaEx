@@ -8,11 +8,11 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: BoundedContext50
+        - id: InHello
           uri: http://localhost:8081
           predicates:
             - Path=/hellos/**, 
-        - id: BoundedContext50
+        - id: OutHello
           uri: http://localhost:8082
           predicates:
             - Path=/worlds/**, 
@@ -39,12 +39,12 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: BoundedContext50
-          uri: http://boundedContext50:8080
+        - id: InHello
+          uri: http://inHello:8080
           predicates:
             - Path=/hellos/**, 
-        - id: BoundedContext50
-          uri: http://boundedContext50:8080
+        - id: OutHello
+          uri: http://outHello:8080
           predicates:
             - Path=/worlds/**, 
         - id: frontend
